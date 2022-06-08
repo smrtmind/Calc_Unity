@@ -372,13 +372,13 @@ MonoBehaviour:
         - m_Target: {fileID: 1310423877}
           m_TargetAssemblyTypeName: Scripts.Input.InputReader, Assembly-CSharp
           m_MethodName: SetDigit
-          m_Mode: 4
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 2
-            m_StringArgument: 
+            m_StringArgument: 2
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &16356417
@@ -2173,13 +2173,13 @@ MonoBehaviour:
         - m_Target: {fileID: 1310423877}
           m_TargetAssemblyTypeName: Scripts.Input.InputReader, Assembly-CSharp
           m_MethodName: SetDigit
-          m_Mode: 4
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: 0
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &1003599885
@@ -2352,13 +2352,13 @@ MonoBehaviour:
         - m_Target: {fileID: 1310423877}
           m_TargetAssemblyTypeName: Scripts.Input.InputReader, Assembly-CSharp
           m_MethodName: SetDigit
-          m_Mode: 4
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 1
-            m_StringArgument: 
+            m_StringArgument: 1
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &1022397033
@@ -2777,13 +2777,13 @@ MonoBehaviour:
         - m_Target: {fileID: 1310423877}
           m_TargetAssemblyTypeName: Scripts.Input.InputReader, Assembly-CSharp
           m_MethodName: SetDigit
-          m_Mode: 4
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 5
-            m_StringArgument: 
+            m_StringArgument: 5
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &1246586054
@@ -2956,13 +2956,13 @@ MonoBehaviour:
         - m_Target: {fileID: 1310423877}
           m_TargetAssemblyTypeName: Scripts.Input.InputReader, Assembly-CSharp
           m_MethodName: SetDigit
-          m_Mode: 4
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 6
-            m_StringArgument: 
+            m_StringArgument: 6
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &1250785178
@@ -3135,13 +3135,13 @@ MonoBehaviour:
         - m_Target: {fileID: 1310423877}
           m_TargetAssemblyTypeName: Scripts.Input.InputReader, Assembly-CSharp
           m_MethodName: SetDigit
-          m_Mode: 4
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 4
-            m_StringArgument: 
+            m_StringArgument: 4
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &1280530392
@@ -3393,13 +3393,13 @@ MonoBehaviour:
         - m_Target: {fileID: 1310423877}
           m_TargetAssemblyTypeName: Scripts.Input.InputReader, Assembly-CSharp
           m_MethodName: SetDigit
-          m_Mode: 4
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 3
-            m_StringArgument: 
+            m_StringArgument: 3
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &1310423875
@@ -3700,13 +3700,13 @@ MonoBehaviour:
         - m_Target: {fileID: 1310423877}
           m_TargetAssemblyTypeName: Scripts.Input.InputReader, Assembly-CSharp
           m_MethodName: SetDigit
-          m_Mode: 4
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 8
-            m_StringArgument: 
+            m_StringArgument: 8
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &1482408172
@@ -5011,13 +5011,13 @@ MonoBehaviour:
         - m_Target: {fileID: 1310423877}
           m_TargetAssemblyTypeName: Scripts.Input.InputReader, Assembly-CSharp
           m_MethodName: SetDigit
-          m_Mode: 4
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 9
-            m_StringArgument: 
+            m_StringArgument: 9
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &1981121189
@@ -5357,13 +5357,13 @@ MonoBehaviour:
         - m_Target: {fileID: 1310423877}
           m_TargetAssemblyTypeName: Scripts.Input.InputReader, Assembly-CSharp
           m_MethodName: SetDigit
-          m_Mode: 4
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 7
-            m_StringArgument: 
+            m_StringArgument: 7
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &1997451503
@@ -5996,8 +5996,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -15, y: 0}
-  m_SizeDelta: {x: -30, y: 0}
+  m_AnchoredPosition: {x: 0, y: -150}
+  m_SizeDelta: {x: -60, y: -300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2146202598
 MonoBehaviour:
@@ -6021,7 +6021,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: a328cd2453c947c4f8e3f2b8feb4aa54, type: 3}
-    m_FontSize: 300
+    m_FontSize: 200
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -6031,7 +6031,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.8
   m_Text: 999
 --- !u!222 &2146202599
 CanvasRenderer:

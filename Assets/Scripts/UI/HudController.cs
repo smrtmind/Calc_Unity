@@ -17,12 +17,12 @@ namespace Scripts.UI
 
         private void Update()
         {
-            _display.text = $"{_input.Digit}";
+            _display.text = $"{_input.Number}";
         }
 
         public void OnCancel()
         {
-            _input.Digit = 0;
+            _input.Number = "0";
         }
 
         public void OnExit()

@@ -6,11 +6,11 @@ namespace Scripts.Input
     {
         private CalculatorController _calculator;
 
-        private float _digit;
-        public float Digit
+        private string _number;
+        public string Number
         {
-            get => _digit;
-            set => _digit = value;
+            get => _number;
+            set => _number = value;
         }
 
         private void Awake()
@@ -18,6 +18,22 @@ namespace Scripts.Input
             _calculator = FindObjectOfType<CalculatorController>();
         }
 
-        public void SetDigit(float digit) => _digit = digit;
+        public void SetDigit(string digit) => _number += digit;
+
+        public void SetOperator(string symbol) => _number += symbol;
+
+        public enum Operator
+        {
+            Cancel,
+            Parentheses,
+            Percent,
+            Divider,
+            Multiplier,
+            Minus,
+            Plus,
+            NegativePositive,
+            Separator,
+            Equals
+        }
     }
 }
