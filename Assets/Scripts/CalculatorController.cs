@@ -1,19 +1,35 @@
 using Scripts.Input;
+using System;
 using UnityEngine;
 
 namespace Scripts
 {
     public class CalculatorController : MonoBehaviour
     {
-        //public bool ñ { get; set; }
-        //public bool parentheses { get; set; }
-        //public bool percent { get; set; }
-        //public bool divider { get; set; }
-        //public bool multiplier { get; set; }
-        //public bool minus { get; set; }
-        //public bool plus { get; set; }
-        //public bool negativeOrPositive { get; set; }
-        //public bool separator { get; set; }
-        //public bool equals { get; set; }
+        private InputReader _input;
+
+        public bool _plus { get; set; }
+        public bool _minus { get; set; }
+        public bool _divide { get; set; }
+        public bool _multiple { get; set; }
+        public bool _result { get; set; }
+
+        private void Awake()
+        {
+            _input = FindObjectOfType<InputReader>();
+        }
+
+        private void Update()
+        {
+            if (_result)
+            {
+
+            }   
+
+            if (_plus)
+            {
+                var result = Convert.ToDouble(_input.Number);
+            }
+        }
     }
 }

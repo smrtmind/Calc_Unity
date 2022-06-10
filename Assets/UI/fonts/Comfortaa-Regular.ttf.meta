@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a328cd2453c947c4f8e3f2b8feb4aa54
+guid: 4aee1432edd64584d86210a901ccafdf
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Arcon
+  - Comfortaa
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

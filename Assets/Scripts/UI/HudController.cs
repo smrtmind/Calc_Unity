@@ -9,10 +9,12 @@ namespace Scripts.UI
         [SerializeField] private Text _display;
 
         private InputReader _input;
+        private CalculatorController _calculator;
 
         private void Awake()
         {
             _input = FindObjectOfType<InputReader>();
+            _calculator = FindObjectOfType<CalculatorController>();
         }
 
         private void Update()
