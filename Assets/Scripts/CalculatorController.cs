@@ -8,28 +8,63 @@ namespace Scripts
     {
         private InputReader _input;
 
+        private double _number;
+        private double _result;
+        public double Result => _result;
+
         public bool _plus { get; set; }
         public bool _minus { get; set; }
         public bool _divide { get; set; }
         public bool _multiple { get; set; }
-        public bool _result { get; set; }
+        public bool _separator { get; set; }
+        public bool _equals { get; set; }
 
         private void Awake()
         {
             _input = FindObjectOfType<InputReader>();
         }
 
-        private void Update()
+        public void Plus()
         {
-            if (_result)
-            {
-
-            }   
-
             if (_plus)
             {
-                var result = Convert.ToDouble(_input.Number);
+                _input.InMemoryNumber = string.Empty;
+                _input.InMemoryNumber = _input.CurrentNumber;
+
+                _result += Convert.ToDouble(_input.CurrentNumber);
+
+                _input.InMemoryNumber = _input.CurrentNumber + "+";
+
+                _input.CurrentNumber = string.Empty;
             }
+        }
+
+        public void Minus()
+        {
+
+        }
+
+        public void Divide()
+        {
+
+        }
+
+        public void Multiple()
+        {
+
+        }
+
+        public void Separator()
+        {
+            if (_separator)
+            {
+                _input.CurrentNumber += ",";
+            }
+        }
+
+        public void Equals()
+        {
+
         }
     }
 }

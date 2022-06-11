@@ -6,7 +6,8 @@ namespace Scripts.UI
 {
     public class HudController : MonoBehaviour
     {
-        [SerializeField] private Text _display;
+        [SerializeField] private Text _inMemoryInput;
+        [SerializeField] private Text _currentInput;
 
         private InputReader _input;
         private CalculatorController _calculator;
@@ -19,12 +20,8 @@ namespace Scripts.UI
 
         private void Update()
         {
-            _display.text = $"{_input.Number}";
-        }
-
-        public void OnCancel()
-        {
-            _input.Number = "0";
+            _inMemoryInput.text = $"{_calculator.Result}";
+            _currentInput.text = $"{_input.CurrentNumber}";
         }
 
         public void OnExit()
