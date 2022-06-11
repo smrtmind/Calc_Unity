@@ -42,50 +42,15 @@ namespace Scripts.Input
             _calculator._separator = false;
         }
 
-        public void Plus()
+        public void OnEquals()
         {
-            _calculator.Plus();
-            _calculator._plus = false;
-        }
-
-        public void Minus()
-        {
-            _calculator.Minus();
-            _calculator._minus = false;
-        }
-        public void Multiple()
-        {
-            _calculator.Multiple();
-            _calculator._multiple = false;
-        }
-
-        public void Divide()
-        {
-            _calculator.Divide();
-            _calculator._divide = false;
-        }
-
-        public void Equals()
-        {
-            _calculator.Equals();
-            _calculator._equals = false;
+            _inMemoryNumber = string.Empty;
+            _currentNumber = $"{_calculator.Result}";
         }
 
         public void OnCancel()
         {
             CurrentNumber = "0"; //error
         }
-
-        //public enum Operator
-        //{
-        //    Parentheses,
-        //    Percent,
-        //    Divider,
-        //    Multiplier,
-        //    Minus,
-        //    Plus,
-        //    NegativePositive,
-        //    Separator
-        //}
     }
 }

@@ -702,8 +702,8 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1310423877}
-          m_TargetAssemblyTypeName: Scripts.Input.InputReader, Assembly-CSharp
+        - m_Target: {fileID: 1694214019}
+          m_TargetAssemblyTypeName: Scripts.CalculatorController, Assembly-CSharp
           m_MethodName: Multiple
           m_Mode: 1
           m_Arguments:
@@ -1139,8 +1139,8 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1310423877}
-          m_TargetAssemblyTypeName: Scripts.Input.InputReader, Assembly-CSharp
+        - m_Target: {fileID: 1694214019}
+          m_TargetAssemblyTypeName: Scripts.CalculatorController, Assembly-CSharp
           m_MethodName: Divide
           m_Mode: 1
           m_Arguments:
@@ -1210,7 +1210,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4aee1432edd64584d86210a901ccafdf, type: 3}
-    m_FontSize: 100
+    m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2118,8 +2118,8 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1310423877}
-          m_TargetAssemblyTypeName: Scripts.Input.InputReader, Assembly-CSharp
+        - m_Target: {fileID: 1694214019}
+          m_TargetAssemblyTypeName: Scripts.CalculatorController, Assembly-CSharp
           m_MethodName: Minus
           m_Mode: 1
           m_Arguments:
@@ -4150,14 +4150,14 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 1310423877}
           m_TargetAssemblyTypeName: Scripts.Input.InputReader, Assembly-CSharp
-          m_MethodName: SetOperator
-          m_Mode: 5
+          m_MethodName: Separator
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: .
+            m_StringArgument: ','
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &1574737843
@@ -4230,7 +4230,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ()
+  m_Text: <--
 --- !u!222 &1574737846
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4567,7 +4567,7 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 1310423877}
           m_TargetAssemblyTypeName: Scripts.Input.InputReader, Assembly-CSharp
-          m_MethodName: Equals
+          m_MethodName: OnEquals
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -5353,8 +5353,8 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1310423877}
-          m_TargetAssemblyTypeName: Scripts.Input.InputReader, Assembly-CSharp
+        - m_Target: {fileID: 1694214019}
+          m_TargetAssemblyTypeName: Scripts.CalculatorController, Assembly-CSharp
           m_MethodName: Plus
           m_Mode: 1
           m_Arguments:
@@ -5953,7 +5953,7 @@ GameObject:
   - component: {fileID: 2096829522}
   - component: {fileID: 4676594659854688784}
   m_Layer: 5
-  m_Name: ()
+  m_Name: <--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6260,6 +6260,18 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 50
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1694214018}
+          m_TargetAssemblyTypeName: Scripts.UI.HudController, Assembly-CSharp
+          m_MethodName: OnDelete
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0

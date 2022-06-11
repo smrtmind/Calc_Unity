@@ -20,8 +20,33 @@ namespace Scripts.UI
 
         private void Update()
         {
-            _inMemoryInput.text = $"{_calculator.Result}";
+            _inMemoryInput.text = $"{_input.InMemoryNumber}";
+
+            //if (_input.CurrentNumber.Length != default)
+            //{
+            //    if (_input.CurrentNumber.Length < 8)
+            //        _currentInput.fontSize = 200;
+            //    else if (_input.CurrentNumber.Length > 8 && _input.CurrentNumber.Length < 15)
+            //        _currentInput.fontSize = 150;
+            //    else if (_input.CurrentNumber.Length > 15 && _input.CurrentNumber.Length < 25)
+            //        _currentInput.fontSize = 100;
+            //}
+
             _currentInput.text = $"{_input.CurrentNumber}";
+
+        }
+
+        public void OnDelete()
+        {
+            if (_input.CurrentNumber.Length > 0)
+            {
+                char[] tempArray = new char[_input.CurrentNumber.Length - 1];
+
+                for (int i = 0; i < tempArray.Length; i++)
+                    tempArray[i] = _input.CurrentNumber[i];
+
+                _input.CurrentNumber = new string(tempArray);
+            }
         }
 
         public void OnExit()
