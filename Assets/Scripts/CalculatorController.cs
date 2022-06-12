@@ -37,70 +37,27 @@ namespace Scripts
             _input = FindObjectOfType<InputReader>();
         }
 
-        //private void Update()
-        //{
-        //    _separatorIsUsed = false;
-
-        //    if (_input.CurrentNumber != default && _input.CurrentNumber.Length > 0)
-        //    {
-        //        if (_input.MathOperator == "+")
-        //        {
-        //            if (_firstOperation)
-        //            {
-        //                _result = Convert.ToDecimal(_input.CurrentNumber);
-        //                _firstOperation = false;
-        //            }
-        //            else
-        //            {
-        //                _result += Convert.ToDecimal(_input.CurrentNumber);
-        //            }
-
-        //            _input.MathOperator = string.Empty;
-        //            _input.InMemoryNumber = $"{_result} +";
-        //        }
-
-        //        //_input.CurrentNumber = string.Empty;
-        //    }
-        //}
-
-        //public void Plus()
-        //{
-        //    _separatorIsUsed = false;
-
-        //    if (_plus && _input.CurrentNumber.Length > 0)
-        //    {
-        //        _input.InMemoryNumber = string.Empty;
-        //        _input.InMemoryNumber = _input.CurrentNumber;
-
-        //        if (_firstOperation)
-        //        {
-        //            _result = Convert.ToDecimal(_input.CurrentNumber);
-        //            _firstOperation = false;
-        //        }
-        //        else
-        //        {
-        //            _result += Convert.ToDecimal(_input.CurrentNumber);
-        //        }
-
-        //        //if (_negative)
-        //        //    _result *= -1;
-        //        //else
-        //        //    _result *= 1;
-
-        //        _input.InMemoryNumber = $"{_result} +";
-
-        //        _input.CurrentNumber = string.Empty;
-
-        //        _plus = false;
-        //    }
-        //}
-
         public void Separator()
         {
-            if (_separator && !_separatorIsUsed)
-                _input.CurrentNumber += ",";
+            if (_input.CurrentNumber != null)
+            {
+                foreach (var symbol in _input.CurrentNumber.ToCharArray())
+                {
+                    if (symbol == ',')
+                    {
+                        _separatorIsUsed = true;
+                        break;
+                    }
+                    else _separatorIsUsed = false;
+                }
+            }
 
-            _separatorIsUsed = true;
+            if (_separator && !_separatorIsUsed)
+            {
+                if (_input.CurrentNumber.Length > 0)
+                    _input.CurrentNumber += ",";
+                else return;
+            }
         }
 
         public void MoveResult()
@@ -111,13 +68,11 @@ namespace Scripts
 
         public void Equals()
         {
-            var currentNumber = Convert.ToDecimal(_input.CurrentNumber);
-
-            _separatorIsUsed = false;
+            //_separatorIsUsed = false;
 
             if (_firstOperation)
             {
-                _result = currentNumber;
+                _result = GetConvertedNumber(_input.CurrentNumber);
                 _firstOperation = false;
             }
 
@@ -125,22 +80,22 @@ namespace Scripts
             {
                 if (_input.MathOperator == "+")
                 {
-                    _result += currentNumber;
+                    _result += GetConvertedNumber(_input.CurrentNumber);
                     _plus = false;
                 }
                 if (_input.MathOperator == "-")
                 {
-                    _result -= currentNumber;
+                    _result -= GetConvertedNumber(_input.CurrentNumber);
                     _minus = false;
                 }
                 if (_input.MathOperator == "/")
                 {
-                    _result /= currentNumber;
+                    _result /= GetConvertedNumber(_input.CurrentNumber);
                     _divide = false;
                 }
                 if (_input.MathOperator == "*")
                 {
-                    _result *= currentNumber;
+                    _result *= GetConvertedNumber(_input.CurrentNumber);
                     _multiple = false;
                 }
             }
@@ -150,5 +105,7 @@ namespace Scripts
         }
 
         public void SetSigh(string sign) => _sign = sign;
+
+        private decimal GetConvertedNumber(string number) => Convert.ToDecimal(number);
     }
 }

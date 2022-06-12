@@ -50,20 +50,25 @@ namespace Scripts.Input
             _calculator._separator = false;
         }
 
-        //public void OnEquals()
-        //{
-        //    _inMemoryNumber = string.Empty;
-        //    _currentNumber = $"{_calculator.Result}";
+        public void OnEquals()
+        {
+            _calculator.Equals();
 
-        //    _calculator.FirstOperation = true;
+            _inMemoryNumber = string.Empty;
+            _mathOperator = string.Empty;
+            _currentNumber = $"{_calculator.Result}";
 
-        //    ResetOperatorsAccess();
-        //}
+
+            _calculator.FirstOperation = true;
+
+            ResetOperatorsAccess();
+        }
 
         public void OnCancel()
         {
             _inMemoryNumber = string.Empty;
             _currentNumber = string.Empty;
+            _mathOperator = string.Empty;
             _calculator.Result = default;
             _calculator.FirstOperation = true;
         }
