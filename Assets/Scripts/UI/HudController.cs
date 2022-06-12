@@ -22,18 +22,26 @@ namespace Scripts.UI
         {
             _inMemoryInput.text = $"{_input.InMemoryNumber}";
 
-            //if (_input.CurrentNumber.Length != default)
-            //{
-            //    if (_input.CurrentNumber.Length < 8)
-            //        _currentInput.fontSize = 200;
-            //    else if (_input.CurrentNumber.Length > 8 && _input.CurrentNumber.Length < 15)
-            //        _currentInput.fontSize = 150;
-            //    else if (_input.CurrentNumber.Length > 15 && _input.CurrentNumber.Length < 25)
-            //        _currentInput.fontSize = 100;
-            //}
+            if (_input.CurrentNumber != default)
+            {
+                if (_input.CurrentNumber.Length < 8)
+                    _currentInput.fontSize = 200;
+                else if (_input.CurrentNumber.Length > 8 && _input.CurrentNumber.Length < 12)
+                    _currentInput.fontSize = 150;
+                else if (_input.CurrentNumber.Length > 12)
+                    _currentInput.fontSize = 100;
+            }
 
             _currentInput.text = $"{_input.CurrentNumber}";
 
+        }
+
+        public void OnNegative()
+        {
+            if (!_calculator._negative)
+                _calculator._negative = true;
+            else
+                _calculator._negative = false;
         }
 
         public void OnDelete()

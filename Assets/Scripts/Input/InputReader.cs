@@ -6,6 +6,13 @@ namespace Scripts.Input
     {
         private CalculatorController _calculator;
 
+        private string _mathOperator;
+        public string MathOperator
+        {
+            get => _mathOperator;
+            set => _mathOperator = value;
+        }
+
         private string _currentNumber;
         public string CurrentNumber
         {
@@ -27,14 +34,15 @@ namespace Scripts.Input
 
         public void SetDigit(string digit)
         {
+            //if (_calculator._negative && _currentNumber.Length > 0)
+            //    _currentNumber += "-" + digit;
+            //else
             _currentNumber += digit;
 
-            _calculator._plus = true;
-            _calculator._minus = true;
-            _calculator._divide = true;
-            _calculator._multiple = true;
-            _calculator._separator = true;
+            ResetOperatorsAccess();
         }
+
+        public void SetOperator(string mathOperator) => _mathOperator = mathOperator;
 
         public void Separator()
         {
@@ -42,15 +50,31 @@ namespace Scripts.Input
             _calculator._separator = false;
         }
 
-        public void OnEquals()
-        {
-            _inMemoryNumber = string.Empty;
-            _currentNumber = $"{_calculator.Result}";
-        }
+        //public void OnEquals()
+        //{
+        //    _inMemoryNumber = string.Empty;
+        //    _currentNumber = $"{_calculator.Result}";
+
+        //    _calculator.FirstOperation = true;
+
+        //    ResetOperatorsAccess();
+        //}
 
         public void OnCancel()
         {
-            CurrentNumber = "0"; //error
+            _inMemoryNumber = string.Empty;
+            _currentNumber = string.Empty;
+            _calculator.Result = default;
+            _calculator.FirstOperation = true;
+        }
+
+        private void ResetOperatorsAccess()
+        {
+            _calculator._plus = true;
+            _calculator._minus = true;
+            _calculator._divide = true;
+            _calculator._multiple = true;
+            _calculator._separator = true;
         }
     }
 }
