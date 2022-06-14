@@ -41,13 +41,13 @@ namespace Scripts.UI
             _currentInput.text = $"{_input.CurrentNumber}";
         }
 
-        public void OnNegative()
-        {
-            if (!_calculator._negative)
-                _calculator._negative = true;
-            else
-                _calculator._negative = false;
-        }
+        //public void OnNegative()
+        //{
+        //    if (!_calculator._negative)
+        //        _calculator._negative = true;
+        //    else
+        //        _calculator._negative = false;
+        //}
 
         public void OnDelete()
         {

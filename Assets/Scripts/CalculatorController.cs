@@ -38,7 +38,7 @@ namespace Scripts
         public bool _minus { get; set; }
         public bool _divide { get; set; }
         public bool _multiple { get; set; }
-        public bool _negative { get; set; }
+        //public bool _negative { get; set; }
 
         private void Awake()
         {

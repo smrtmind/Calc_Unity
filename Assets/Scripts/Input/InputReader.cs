@@ -47,6 +47,26 @@ namespace Scripts.Input
 
         public void Separator() => _calculator.UseSeparator();
 
+        public void Negative()
+        {
+            if (_currentNumber != null)
+            {
+                if (_currentNumber.Length > 0)
+                {
+                    if (_currentNumber[0] == '-')
+                    {
+                        var tempArray = _currentNumber.Remove(0, 1).ToString();
+                        _currentNumber = tempArray;
+                    }
+                    else
+                    {
+                        var tempArray = _currentNumber.Insert(0, "-").ToString();
+                        _currentNumber = tempArray;
+                    }
+                }
+            }
+        }
+
         public void OnEquals()
         {
             _calculator.GetResult();
