@@ -6,8 +6,15 @@ namespace Scripts.UI
 {
     public class HudController : MonoBehaviour
     {
+        [SerializeField] private Button[] _buttons;
         [SerializeField] private Text _inMemoryInput;
         [SerializeField] private Text _currentInput;
+
+        public Button[] Buttons
+        {
+            get => _buttons;
+            set => _buttons = value;
+        }
 
         private InputReader _input;
         private CalculatorController _calculator;
@@ -20,8 +27,6 @@ namespace Scripts.UI
 
         private void Update()
         {
-            _inMemoryInput.text = $"{_input.InMemoryNumber}";
-
             if (_input.CurrentNumber != default)
             {
                 if (_input.CurrentNumber.Length < 8)
@@ -32,8 +37,8 @@ namespace Scripts.UI
                     _currentInput.fontSize = 100;
             }
 
+            _inMemoryInput.text = $"{_input.InMemoryNumber}";
             _currentInput.text = $"{_input.CurrentNumber}";
-
         }
 
         public void OnNegative()

@@ -716,7 +716,7 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 1694214019}
           m_TargetAssemblyTypeName: Scripts.CalculatorController, Assembly-CSharp
-          m_MethodName: Equals
+          m_MethodName: GetResult
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1177,7 +1177,7 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 1694214019}
           m_TargetAssemblyTypeName: Scripts.CalculatorController, Assembly-CSharp
-          m_MethodName: Equals
+          m_MethodName: GetResult
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2180,7 +2180,7 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 1694214019}
           m_TargetAssemblyTypeName: Scripts.CalculatorController, Assembly-CSharp
-          m_MethodName: Equals
+          m_MethodName: GetResult
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4314,7 +4314,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: <--
+  m_Text: <=
 --- !u!222 &1574737846
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4715,6 +4715,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f8556bd555fa564ea1ffdd7147320ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttons:
+  - {fileID: 2096829522}
+  - {fileID: 565856931}
+  - {fileID: 269676476}
+  - {fileID: 1990663547}
+  - {fileID: 1400270887}
+  - {fileID: 1953461487}
+  - {fileID: 71450948}
+  - {fileID: 1250785180}
+  - {fileID: 1120954792}
+  - {fileID: 1246586056}
+  - {fileID: 881762281}
+  - {fileID: 1003599887}
+  - {fileID: 8364943}
+  - {fileID: 1303427025}
+  - {fileID: 1981121191}
+  - {fileID: 1069499935}
+  - {fileID: 940931503}
+  - {fileID: 1554024304}
+  - {fileID: 1677272221}
   _inMemoryInput: {fileID: 278890866}
   _currentInput: {fileID: 2146202598}
 --- !u!114 &1694214019
@@ -5451,7 +5471,7 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 1694214019}
           m_TargetAssemblyTypeName: Scripts.CalculatorController, Assembly-CSharp
-          m_MethodName: Equals
+          m_MethodName: GetResult
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6061,7 +6081,7 @@ GameObject:
   - component: {fileID: 2096829522}
   - component: {fileID: 4676594659854688784}
   m_Layer: 5
-  m_Name: <--
+  m_Name: <=
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6318,7 +6338,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
-  m_Text: 
+  m_Text: 0
 --- !u!222 &2146202599
 CanvasRenderer:
   m_ObjectHideFlags: 0
