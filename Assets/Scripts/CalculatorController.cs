@@ -11,14 +11,14 @@ namespace Scripts
         private HudController _hud;
         private InputReader _input;
 
-        private bool _divideByZeroException;
-        public bool DivideByZeroException
-        {
-            get => _divideByZeroException;
-            set => _divideByZeroException = value;
-        }
+        private double _result;
         private string _sign;
         private bool _separatorIsFound;
+        private double _currentNumber;
+
+        private bool _divideByZeroException;
+        public bool DivideByZeroException => _divideByZeroException;
+        public double Result => _result;
 
         private bool _firstOperation = true;
         public bool FirstOperation
@@ -26,19 +26,6 @@ namespace Scripts
             get => _firstOperation;
             set => _firstOperation = value;
         }
-
-        private decimal _result;
-        public decimal Result
-        {
-            get => _result;
-            set => _result = value;
-        }
-
-        public bool _plus { get; set; }
-        public bool _minus { get; set; }
-        public bool _divide { get; set; }
-        public bool _multiple { get; set; }
-        //public bool _negative { get; set; }
 
         private void Awake()
         {
@@ -51,7 +38,6 @@ namespace Scripts
             //if it is not first operation after start
             if (_input.CurrentNumber != null)
             {
-                //check if user already entered separator
                 foreach (var symbol in _input.CurrentNumber.ToCharArray())
                 {
                     if (symbol == ',')
@@ -80,62 +66,89 @@ namespace Scripts
             //to avoid multiply/divide on zero, because on start first operation will add/minus/divide/multiply with default digit 0
             if (_firstOperation)
             {
-                _result = Convert.ToDecimal(_input.CurrentNumber);
+                _result = Convert.ToDouble(_input.CurrentNumber);
                 _firstOperation = false;
             }
 
             //if user entered something
-            if (_input.CurrentNumber.Length > 0)
+            if (_input.CurrentNumber != null)
             {
-                var currentNumber = Convert.ToDecimal(_input.CurrentNumber);
-
-                switch (_input.MathOperator)
+                if (_input.CurrentNumber.Length > 0)
                 {
-                    case "+":
-                        _result += currentNumber;
-                        _plus = false;
-                        break;
+                    _currentNumber = Convert.ToDouble(_input.CurrentNumber);
 
-                    case "-":
-                        _result -= currentNumber;
-                        _minus = false;
-                        break;
+                    if (_input.MathOperator == "+") Plus();
+                    if (_input.MathOperator == "-") Minus();
+                    if (_input.MathOperator == "*") Multiply();
 
-                    case "/":
-                        //prevent dividing by zero and throw message
-                        if (currentNumber == 0)
-                        {
-                            _input.InMemoryNumber = string.Empty;
-                            _input.CurrentNumber = $"division by zero is not allowed";
-                            _divideByZeroException = true;
-
-                            //deactivate all buttons except C
-                            foreach (var button in _hud.Buttons)
-                            {
-                                button.interactable = false;
-                                button.GetComponent<EventTrigger>().enabled = false;
-                            }
-
-                            return;
-                        }
-                        else
-                        {
-                            _result /= currentNumber;
-                            _divide = false;
-                        }
-                        break;
-
-                    case "*":
-                        _result *= currentNumber;
-                        _multiple = false;
-                        break;
+                    if (_input.MathOperator == "/") Divide();
+                    if (_divideByZeroException) return;
                 }
             }
+            else
+            {
+                _input.CurrentNumber = null;
+                return;
+            }
 
-            _input.InMemoryNumber = $"{_result} {_sign}";
+            _input.InMemoryNumber = $"{GetCorrectOutput()} {_sign}";
             _input.CurrentNumber = string.Empty;
         }
 
         public void SetSigh(string sign) => _sign = sign;
+
+        private void Plus() => _result += _currentNumber;
+
+        private void Minus() => _result -= _currentNumber;
+
+        private void Multiply() => _result *= _currentNumber;
+
+        private void Divide()
+        {
+            //prevent dividing by zero and throw message
+            if (_currentNumber == 0)
+            {
+                _input.InMemoryNumber = string.Empty;
+                _input.CurrentNumber = $"division by zero is not allowed";
+                _divideByZeroException = true;
+
+                //deactivate all buttons except button 'C'
+                foreach (var button in _hud.Buttons)
+                {
+                    button.interactable = false;
+                    button.GetComponent<EventTrigger>().enabled = false;
+                }
+
+                return;
+            }
+            else _result /= _currentNumber;
+        }
+
+        public string GetCorrectOutput()
+        {
+            //if number with decimal point, need to check digits after it
+            if (_separatorIsFound)
+            {
+                var splittedBySeparatorArray = $"{_result}".Split(',');
+
+                //take digits after separator, on index 1
+                var digitsAfterSeparator = splittedBySeparatorArray[1];
+
+                int zeroCounter = default;
+
+                for (int i = 0; i < digitsAfterSeparator.Length; i++)
+                    if (digitsAfterSeparator[i] == '0')
+                        zeroCounter++;
+
+                //if amount of zeroes is equal to all digits after separator, remove all zeroes and separator
+                if (zeroCounter == digitsAfterSeparator.Length)
+                    return $"{splittedBySeparatorArray[0]}";
+                //other way show full number
+                else
+                    return $"{_result}";
+            }
+            else
+                return $"{_result}";
+        }
     }
 }

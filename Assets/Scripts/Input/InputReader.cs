@@ -8,20 +8,21 @@ namespace Scripts.Input
         private CalculatorController _calculator;
 
         private string _mathOperator;
+        private string _currentNumber;
+        private string _inMemoryNumber;
+
         public string MathOperator
         {
             get => _mathOperator;
             set => _mathOperator = value;
         }
 
-        private string _currentNumber;
         public string CurrentNumber
         {
             get => _currentNumber;
             set => _currentNumber = value;
         }
 
-        private string _inMemoryNumber;
         public string InMemoryNumber
         {
             get => _inMemoryNumber;
@@ -35,12 +36,13 @@ namespace Scripts.Input
 
         public void SetDigit(string digit)
         {
-            //if (_calculator._negative && _currentNumber.Length > 0)
-            //    _currentNumber += "-" + digit;
-            //else
             _currentNumber += digit;
 
-            ResetOperatorsAccess();
+            if (_currentNumber.Length > 16)
+            {
+                var tempNumber = _currentNumber.Substring(0, 16);
+                _currentNumber = tempNumber;
+            }
         }
 
         public void SetOperator(string mathOperator) => _mathOperator = mathOperator;
@@ -54,15 +56,9 @@ namespace Scripts.Input
                 if (_currentNumber.Length > 0)
                 {
                     if (_currentNumber[0] == '-')
-                    {
-                        var tempArray = _currentNumber.Remove(0, 1).ToString();
-                        _currentNumber = tempArray;
-                    }
+                        _currentNumber = _currentNumber.Remove(0, 1).ToString();
                     else
-                    {
-                        var tempArray = _currentNumber.Insert(0, "-").ToString();
-                        _currentNumber = tempArray;
-                    }
+                        _currentNumber = _currentNumber.Insert(0, "-").ToString();
                 }
             }
         }
@@ -79,28 +75,33 @@ namespace Scripts.Input
             }
 
             _calculator.FirstOperation = true;
-
-            ResetOperatorsAccess();
         }
 
         public void OnCancel()
         {
             var sceneName = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(sceneName);
-
-            //_inMemoryNumber = string.Empty;
-            //_currentNumber = string.Empty;
-            //_mathOperator = string.Empty;
-            //_calculator.Result = default;
-            //_calculator.FirstOperation = true;
         }
 
-        private void ResetOperatorsAccess()
+        public void OnDelete()
         {
-            _calculator._plus = true;
-            _calculator._minus = true;
-            _calculator._divide = true;
-            _calculator._multiple = true;
+            if (_currentNumber != null)
+            {
+                if (_currentNumber.Length == 2 && _currentNumber[0] == '-')
+                    _currentNumber = string.Empty;
+
+                if (_currentNumber.Length > 0)
+                {
+                    char[] tempArray = new char[_currentNumber.Length - 1];
+
+                    for (int i = 0; i < tempArray.Length; i++)
+                        tempArray[i] = _currentNumber[i];
+
+                    _currentNumber = new string(tempArray);
+                }
+            }
         }
+
+        public void OnExit() => Application.Quit();
     }
 }
