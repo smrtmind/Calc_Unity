@@ -19,8 +19,9 @@ namespace Scripts.UI
             _input = FindObjectOfType<InputReader>();
         }
 
-        private void Update()
+        public void DisplayResult()
         {
+            //changing the font size according to amount of digits entered
             if (_input.CurrentNumber != default)
             {
                 if (_input.CurrentNumber.Length < 8)

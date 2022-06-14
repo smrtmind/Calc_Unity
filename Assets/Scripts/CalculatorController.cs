@@ -12,15 +12,15 @@ namespace Scripts
         private InputReader _input;
 
         private double _result;
-        private string _sign;
-        private bool _separatorIsFound;
         private double _currentNumber;
-
-        private bool _divideByZeroException;
-        public bool DivideByZeroException => _divideByZeroException;
-        public double Result => _result;
-
+        private string _visualOperator;
+        private bool _separatorIsFound;
         private bool _firstOperation = true;
+        private bool _divideByZeroException;
+
+        public double Result => _result;
+        public bool DivideByZeroException => _divideByZeroException;
+
         public bool FirstOperation
         {
             get => _firstOperation;
@@ -59,6 +59,8 @@ namespace Scripts
             //if it is first operation after start
             else
                 _input.CurrentNumber += "0,";
+
+            _hud.DisplayResult();
         }
 
         public void GetResult()
@@ -91,11 +93,14 @@ namespace Scripts
                 return;
             }
 
-            _input.InMemoryNumber = $"{GetCorrectOutput()} {_sign}";
+            _input.InMemoryNumber = $"{GetCorrectOutput()} {_visualOperator}";
             _input.CurrentNumber = string.Empty;
+
+            _hud.DisplayResult();
         }
 
-        public void SetSigh(string sign) => _sign = sign;
+        //operator which you see when doing continuous operations one by one
+        public void SetVisualOperator(string visualOperator) => _visualOperator = visualOperator;
 
         private void Plus() => _result += _currentNumber;
 
@@ -118,6 +123,8 @@ namespace Scripts
                     button.interactable = false;
                     button.GetComponent<EventTrigger>().enabled = false;
                 }
+
+                _hud.DisplayResult();
 
                 return;
             }

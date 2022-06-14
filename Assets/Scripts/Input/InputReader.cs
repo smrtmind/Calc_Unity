@@ -1,3 +1,4 @@
+using Scripts.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,7 @@ namespace Scripts.Input
     public class InputReader : MonoBehaviour
     {
         private CalculatorController _calculator;
+        private HudController _hud;
 
         private string _mathOperator;
         private string _currentNumber;
@@ -32,23 +34,31 @@ namespace Scripts.Input
         private void Awake()
         {
             _calculator = FindObjectOfType<CalculatorController>();
+            _hud = FindObjectOfType<HudController>();
         }
 
+        //operation using when buttons from 0 to 9 is pressing
         public void SetDigit(string digit)
         {
             _currentNumber += digit;
 
+            //max available number has 16 digits length, as in Microsoft Calculator
             if (_currentNumber.Length > 16)
             {
                 var tempNumber = _currentNumber.Substring(0, 16);
                 _currentNumber = tempNumber;
             }
+
+            _hud.DisplayResult();
         }
 
+        //set active math operator which will be used on next step
         public void SetOperator(string mathOperator) => _mathOperator = mathOperator;
 
+        //adding decimal pointer
         public void Separator() => _calculator.UseSeparator();
 
+        //add or remove minus sign before the number, to make number negative or positive
         public void Negative()
         {
             if (_currentNumber != null)
@@ -61,12 +71,16 @@ namespace Scripts.Input
                         _currentNumber = _currentNumber.Insert(0, "-").ToString();
                 }
             }
+
+            _hud.DisplayResult();
         }
 
+        //when user press button '='
         public void OnEquals()
         {
             _calculator.GetResult();
 
+            //if user doesn't divide by zero
             if (!_calculator.DivideByZeroException)
             {
                 _inMemoryNumber = string.Empty;
@@ -75,6 +89,8 @@ namespace Scripts.Input
             }
 
             _calculator.FirstOperation = true;
+
+            _hud.DisplayResult();
         }
 
         public void OnCancel()
@@ -87,6 +103,7 @@ namespace Scripts.Input
         {
             if (_currentNumber != null)
             {
+                //if user deleted all digits, minus will remove automatically
                 if (_currentNumber.Length == 2 && _currentNumber[0] == '-')
                     _currentNumber = string.Empty;
 
@@ -100,6 +117,8 @@ namespace Scripts.Input
                     _currentNumber = new string(tempArray);
                 }
             }
+
+            _hud.DisplayResult();
         }
 
         public void OnExit() => Application.Quit();
